@@ -39,11 +39,12 @@
 
           // -------------------------User--------------------------
           var userLink = tweet.user;
-          var userDiv = $('<a></a>');
-          userDiv.text('@' + userLink);
-          userDiv.appendTo(tweetsContainer);
+          //note that "#" within the href signals our div to not refresh the page,and we use <a> instead of <div> because we want usernames to be links
+          var userAnchor = $('<a href="#"></a>');
+          userAnchor.text('@' + userLink);
+          userAnchor.appendTo(tweetsContainer);
           //event object is created upon click, use console.log to explore in chrome console
-          userDiv.click(function(event){
+          userAnchor.click(function(event){
             var username = event.target.innerText.slice(1);
             console.log(username);
             showUserTweets(username);
