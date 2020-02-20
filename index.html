@@ -16,56 +16,26 @@
       $("#newtweetsbutton").click(showHomeTweets);
 
       function showHomeTweets(){
-        //set a variable that selects the tweetscontainer div
-        var tweetsContainer = $('#tweetscontainer');
-        //clears out any elements from within the tweetscontainer div
-        tweetsContainer.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-
-          // -------------------------User--------------------------
-          var userLink = tweet.user;
-          var userDiv = $('<a></a>');
-          userDiv.text('@' + userLink);
-          userDiv.appendTo(tweetsContainer);
-          //event object is created upon click, use console.log to explore in chrome console
-          userDiv.click(function(event){
-            var username = event.target.innerText.slice(1);
-            console.log(username);
-            showUserTweets(username);
-          });
-
-          // ------------------------Message------------------------
-          var tweetDiv = $('<div></div>');
-          tweetDiv.text(tweet.message);
-          tweetDiv.appendTo(tweetsContainer);
-
-          // -----------------------Timestamp--------------------------
-          //reference the timestamp within the object
-          var timeStamp = tweet.created_at;
-          //create a new div for the timestamp
-          var timeDiv = $('<div></div>');
-          //populate the time div with the object's values at created_at
-          timeDiv.text(timeStamp);
-          timeDiv.appendTo(tweetsContainer);
-
-          index -= 1;
-        }
-
+        var tweetArray = streams.home;
+        displayTweets(tweetArray);
       }
 
-      //-------------------user tweet feed function ---------------
       function showUserTweets(username){
+        //note that username is defined on line 47
+        var tweetArray = streams.users[username];
+        displayTweets(tweetArray);
+      }
+
+      //-------------------display tweet function ---------------
+      function displayTweets(tweetArray){
         var tweetsContainer = $('#tweetscontainer');
         //clears out any elements from within the tweetscontainer div
         tweetsContainer.html('');
 
-        var index = streams.users[username].length -1;
+        var index = tweetArray.length -1;
 
         while(index >= 0){
-          var tweet = streams.users[username][index];
+          var tweet = tweetArray[index];
 
           // -------------------------User--------------------------
           var userLink = tweet.user;
