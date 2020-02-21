@@ -31,6 +31,7 @@ body{
     padding-right: 30%;
     padding-left: 30%;
     padding-top: 30px;
+background-color: rgb(167, 167, 167);
 }
 
 .tweet{
@@ -39,6 +40,8 @@ body{
     border:1px solid lightgray;
     padding-left: 10px;
     padding-right: 10px;
+    font-size: 20px;
+    background-color: white;
 }
 
 .tweet-message{
@@ -65,6 +68,14 @@ body{
     font-weight: bold;
     color: white;
 
+}
+
+.user-link{
+    font-weight: bold;
+}
+
+.time-stamp{
+    color: lightslategray;
 }
 
 
