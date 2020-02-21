@@ -7,12 +7,19 @@
   </head>
   <body>
     <div id="banner">
-      <div id="home">Home</div>
+      <div id="home">
+        <img id="logo" src="logo.jpg">
+      </div>
       <div id="title">Twiddler</div>
+      <div id="invisible"></div>
     </div>
-    <button id="refresh-button">Refresh Tweets</button>
-    <div id="tweets-header">Tweets</div>
-    <div id="tweetscontainer"></div>
+    <div id="page-body">
+      <div id="sub-banner">
+        <div id="tweets-header">Tweets</div>
+        <img id="refresh" src="refresh.png">
+      </div>
+      <div id="tweetscontainer"></div>
+    </div>
     <script>
 
       // jquery library used with dollar sign
@@ -20,7 +27,7 @@
       $(document).ready(showHomeTweets);
       //Display tweets once newtweetsbutton is clicked on
       $("#home").click(showHomeTweets);
-      $("#refresh-button").click(refreshTweets);
+      $("#refresh").click(refreshTweets);
 
       var selectedUsername = "";
 
@@ -65,7 +72,7 @@
           // </div>
           var fullTweet = $('<div class="tweet"></div>');
           var tweetInfo = $('<div class="tweet-info"></div>');
-          //append tweet info into full tweet, note that dollar sign is not needed to reference the jquery object, because I defined it within a variable
+          //append tweet info into full tweet, note that dollar sign is not needed to reference the jquery object, because I defined it within a variable. Appending the tweetinfo to full tweet nests the created divs above
           tweetInfo.appendTo(fullTweet);
 
 
@@ -84,7 +91,7 @@
 
           // -----------------------Timestamp--------------------------
           //reference the timestamp within the object
-          var timeStamp = tweet.created_at;
+          var timeStamp = tweet.created_at.toLocaleDateString() + " " + tweet.created_at.toLocaleTimeString();
           //create a new span for the timestamp
           var timeSpan = $('<span class="time-stamp"></span>');
           //populate the time span with the object's values at created_at

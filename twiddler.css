@@ -1,0 +1,71 @@
+#banner{
+    align-items: center;
+    background-color: lightskyblue;
+    display: flex;
+    height: 150px;
+    justify-content: space-between;
+
+}
+
+.tweet-info{
+  display: flex;
+  justify-content: space-between;
+}
+
+#title{
+    font-size: 100px;
+    color: white;
+    }
+
+#logo{
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
+}
+
+body{
+    margin: 0px;
+}
+
+#page-body{
+    padding-right: 30%;
+    padding-left: 30%;
+    padding-top: 30px;
+}
+
+.tweet{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border:1px solid lightgray;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tweet-message{
+    padding-top: 10px;
+}
+
+#sub-banner{
+    display: flex;
+    justify-content: space-between;
+    background-color: #1B9DE9;
+    height: 100px;
+    align-items: center;
+    padding: 10px;
+}
+
+#refresh{
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+#tweets-header{
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+
+}
+
+
+
